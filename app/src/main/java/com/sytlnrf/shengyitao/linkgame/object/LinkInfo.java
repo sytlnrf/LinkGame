@@ -9,7 +9,7 @@ import java.util.List;
  * Created by shengyitao on 15/7/6.
  */
 public class LinkInfo {
-    private List<Point> points = new ArrayList<Point>();
+    private List<Point> points = new ArrayList<>();
     public LinkInfo(Point p1,Point p2){
         points.add(p1);
         points.add(p2);
@@ -25,7 +25,7 @@ public class LinkInfo {
         points.add(p3);
         points.add(p4);
     }
-    public List<Point> getLinkPoints{
-        return Points;
+    public List<Point> getLinkPoints(){
+        return points;
     }
 }
