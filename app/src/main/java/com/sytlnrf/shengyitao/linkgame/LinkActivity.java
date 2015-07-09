@@ -8,6 +8,7 @@ import android.media.SoundPool;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -177,6 +178,8 @@ public class LinkActivity extends Activity{
         float touchY = event.getY();
         // 根据用户触碰的座标得到对应的Piece对象
         Piece currentPiece = gameService.findPiece(touchX, touchY);  //②
+        Log.d("currentPiece", String.valueOf(currentPiece.getBeginX())+" "+currentPiece.getBeginY());
+        Log.d("touchposition", String.valueOf(touchX)+" "+touchY);
         // 如果没有选中任何Piece对象(即鼠标点击的地方没有图片), 不再往下执行
         if (currentPiece == null)
             return;
@@ -187,6 +190,7 @@ public class LinkActivity extends Activity{
         {
             // 将当前方块设为已选中的方块, 重新将GamePanel绘制, 并不再往下执行
             this.selected = currentPiece;
+            Log.d("selected", String.valueOf(this.selected.getBeginX())+" "+String.valueOf(this.selected.getBeginY()));
             this.gameView.postInvalidate();
             return;
         }

@@ -3,6 +3,7 @@ package com.sytlnrf.shengyitao.linkgame.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.sytlnrf.shengyitao.linkgame.R;
 import com.sytlnrf.shengyitao.linkgame.view.PieceImage;
@@ -24,12 +25,14 @@ public class ImageUtil {
             Field[] drawableFields = R.drawable.class.getFields();
             List<Integer> resourcesValues = new ArrayList<Integer>();
             for (Field field:drawableFields){
-                if (field.getName().indexOf("p_") != -1){
+                if (field.getName().contains("p_p")){
                     resourcesValues.add(field.getInt(R.drawable.class));
+                    Log.d("imageName",field.getName());
                 }
             }
             return resourcesValues;
         }catch (Exception e){
+            Log.e("ImageUtil",e.getStackTrace().toString());
             return null;
         }
     }
@@ -44,6 +47,7 @@ public class ImageUtil {
                 Integer image = sourceValues.get(index);
                 result.add(image);
             }catch (IndexOutOfBoundsException e){
+                Log.e("ImageUtil",e.getStackTrace().toString());
                 return result;
             }
         }
@@ -55,8 +59,10 @@ public class ImageUtil {
             size +=1;
         }
         List<Integer> playImageValues = getRandomValues(imageValues,size / 2);
+        Log.d("playImageValues",playImageValues.toString());
         playImageValues.addAll(playImageValues);
         Collections.shuffle(playImageValues);
+        Log.e("size", String.valueOf(playImageValues.size()));
         return playImageValues;
     }
 
@@ -68,6 +74,7 @@ public class ImageUtil {
                     context.getResources(),value);
             PieceImage pieceImage = new PieceImage(bm,value);
             result.add(pieceImage);
+            Log.e("ImageUtil",value.toString());
         }
 
         return result;

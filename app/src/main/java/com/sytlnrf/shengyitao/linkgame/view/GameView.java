@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Shader;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.sytlnrf.shengyitao.linkgame.R;
@@ -77,6 +78,7 @@ public class GameView extends View {
                         // 根据方块左上角X、Y座标绘制方块
                         canvas.drawBitmap(piece.getImage().getImage(),
                                 piece.getBeginX(), piece.getBeginY(), null);
+                        //Log.d("drawBitmap", String.valueOf(piece.getBeginX())+" "+piece.getBeginY());
                     }
                 }
             }

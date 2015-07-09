@@ -1,12 +1,15 @@
 package com.sytlnrf.shengyitao.linkgame.board.impl;
 
 import android.graphics.Point;
+import android.util.Log;
 
 import com.sytlnrf.shengyitao.linkgame.board.AbstractBoard;
 import com.sytlnrf.shengyitao.linkgame.board.GameService;
 import com.sytlnrf.shengyitao.linkgame.object.GameConf;
 import com.sytlnrf.shengyitao.linkgame.object.LinkInfo;
+import com.sytlnrf.shengyitao.linkgame.util.ImageUtil;
 import com.sytlnrf.shengyitao.linkgame.view.Piece;
+import com.sytlnrf.shengyitao.linkgame.view.PieceImage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +40,7 @@ public class GameServiceImpl implements GameService {
         Random random = new Random();
         // 获取一个随机数, 可取值0、1、2、3四值。
         int index = random.nextInt(4);
+        Log.d("boardType", String.valueOf(index));
         // 随机生成AbstractBoard的子类实例
         switch (index)
         {
@@ -91,6 +95,8 @@ public class GameServiceImpl implements GameService {
         // GameConf中设置的beginImageX/beginImageY值, 因此这里要减去这个值
         int relativeX = (int) touchX - this.config.getBeginImageX();
         int relativeY = (int) touchY - this.config.getBeginImageY();
+
+        Log.d("findpiece",""+touchX+" "+touchY+" "+this.config.getBeginImageX()+" "+this.config.getBeginImageY());
         // 如果鼠标点击的地方比board中第一张图片的开始x座标和开始y座标要小, 即没有找到相应的方块
         if (relativeX < 0 || relativeY < 0)
         {

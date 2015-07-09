@@ -65,9 +65,10 @@ public class Piece {
 
     public boolean isSameImage(Piece other){
         if (image == null){
-            if (other.image != null){
+            if (other.image == null){
                 return false;
             }
+            return false;
         }
 
         return (image.getImageId() == other.image.getImageId());

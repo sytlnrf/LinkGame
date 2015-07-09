@@ -6,8 +6,8 @@ import android.content.Context;
  * Created by shengyitao on 15/7/6.
  */
 public class GameConf {
-    public static final int PIECE_WIDTH = 40;
-    public static final int PIECE_HEIGHT = 40;
+    public static final int PIECE_WIDTH = 120;
+    public static final int PIECE_HEIGHT = 120;
     public static final int DEFAULT_TIME = 100;
 
     private int xSize;

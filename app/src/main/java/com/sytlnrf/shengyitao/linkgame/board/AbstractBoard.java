@@ -1,5 +1,7 @@
 package com.sytlnrf.shengyitao.linkgame.board;
 
+import android.util.Log;
+
 import com.sytlnrf.shengyitao.linkgame.object.GameConf;
 import com.sytlnrf.shengyitao.linkgame.util.ImageUtil;
 import com.sytlnrf.shengyitao.linkgame.view.Piece;
@@ -27,6 +29,7 @@ public abstract class AbstractBoard {
         // 所有图片的宽、高都是相同的
         int imageWidth = playImages.get(0).getImage().getWidth();
         int imageHeight = playImages.get(0).getImage().getHeight();
+        Log.d("imageWidth", String.valueOf(imageWidth));
         // 遍历非空的Piece集合
         for (int i = 0; i < notNullPieces.size(); i++)
         {
